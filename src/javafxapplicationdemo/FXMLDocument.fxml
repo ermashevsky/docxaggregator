@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -7,12 +8,22 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplicationdemo.FXMLDocumentController">
-    <children>
-      <HBox layoutX="367.0" layoutY="262.0">
+   <children>
+      <Button mnemonicParsing="false" text="Новый договор" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0" />
+      <Pane layoutX="4.0" layoutY="40.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
          <children>
-              <Button fx:id="button" layoutX="367.0" layoutY="262.0" onAction="#handleButtonAction" text="Click Me!" />
-              <Label fx:id="label" layoutX="372.0" layoutY="292.0" minHeight="16" minWidth="69" />
+            <TableView maxHeight="600" maxWidth="800" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
          </children>
-      </HBox>
-    </children>
+      </Pane>
+   </children>
 </AnchorPane>
