@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplicationdemo.FXMLDocumentController">
+    <children>
+      <HBox layoutX="367.0" layoutY="262.0">
+         <children>
+              <Button fx:id="button" layoutX="367.0" layoutY="262.0" onAction="#handleButtonAction" text="Click Me!" />
+              <Label fx:id="label" layoutX="372.0" layoutY="292.0" minHeight="16" minWidth="69" />
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>
