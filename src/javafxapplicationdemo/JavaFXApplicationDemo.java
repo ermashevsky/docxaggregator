@@ -22,7 +22,7 @@ public class JavaFXApplicationDemo extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.setTitle("Small OpenWeatherMap Service Client");
         stage.setScene(scene);
         stage.show();
     }
