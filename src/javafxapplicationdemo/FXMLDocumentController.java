@@ -15,6 +15,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import net.aksingh.owmjapis.CurrentWeather;
 import net.aksingh.owmjapis.OpenWeatherMap;
 import org.json.JSONArray;
@@ -35,6 +37,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Label other_data1;
+    
+    @FXML
+    private Label img;
 
     @FXML
     private Label current_temp;
@@ -44,6 +49,7 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("You clicked me!");
 
         OpenWeatherMap owm = new OpenWeatherMap("");
+        
         owm.setApiKey("95b844c054292e842f1cb4fc3d5b4367");
         owm.setUnits(OpenWeatherMap.Units.METRIC);
         owm.setLang(OpenWeatherMap.Language.RUSSIAN);
@@ -57,14 +63,20 @@ public class FXMLDocumentController implements Initializable {
         System.out.println(jsonObj);
         
         JSONArray array = jsonObj.getJSONArray("weather");
+        
         for (int i = 0; i < array.length(); i++) {
             System.out.println(array.getJSONObject(i).getString("description"));
             other_data1.setText(array.getJSONObject(i).getString("main") +", "+ array.getJSONObject(i).getString("description"));
             
+            Image image = new Image("http://openweathermap.org/img/w/"+array.getJSONObject(i).getString("icon")+".png");
+            img.setGraphic(new ImageView(image));
+            
         }
 
         other_data.setText("Wind speed " + Float.toString(cwd.getWindInstance().getWindSpeed()) + " meter/sec" + " Clouds " + cwd.getCloudsInstance().getPercentageOfClouds() + "%" + " Pressure " + cwd.getMainInstance().getPressure() + " hpa");
-        current_temp.setText("Current Temp " + cwd.getMainInstance().getTemperature() + " C");
+        current_temp.setText("Current Temp " + cwd.getMainInstance().getTemperature() + (char) 0x00B0 + "C");
+        
+        
 
     }
 
