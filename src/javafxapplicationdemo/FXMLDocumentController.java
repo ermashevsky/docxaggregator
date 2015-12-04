@@ -73,7 +73,7 @@ public class FXMLDocumentController implements Initializable {
             
         }
 
-        other_data.setText("Wind speed " + Float.toString(cwd.getWindInstance().getWindSpeed()) + " meter/sec" + " Clouds " + cwd.getCloudsInstance().getPercentageOfClouds() + "%" + " Pressure " + cwd.getMainInstance().getPressure() + " hpa");
+        other_data.setText("Wind speed " + Float.toString(cwd.getWindInstance().getWindSpeed()) + " meter/sec" + " Clouds " + cwd.getCloudsInstance().getPercentageOfClouds() + "%" + " Pressure " + (int)cwd.getMainInstance().getPressure()/1.333 + " mm of mercury column");
         current_temp.setText("Current Temp " + cwd.getMainInstance().getTemperature() + (char) 0x00B0 + "C");
         
         
