@@ -22,6 +22,11 @@
                   <Font size="16.0" />
                </font>
             </Label>
+            <Label fx:id="other_data1" prefHeight="20.0" prefWidth="514.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
             <Label fx:id="current_temp" layoutX="90.0" layoutY="111.0" prefHeight="50.0" prefWidth="478.0">
                <font>
                   <Font size="43.0" />
