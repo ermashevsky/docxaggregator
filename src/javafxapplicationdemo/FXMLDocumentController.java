@@ -27,7 +27,10 @@ public class FXMLDocumentController implements Initializable {
     private Label city;
     
     @FXML
-    private Label date;
+    private Label other_data;
+    
+    @FXML
+    private Label other_data1;
     
     @FXML
     private Label current_temp;
@@ -43,20 +46,12 @@ public class FXMLDocumentController implements Initializable {
         owm.setLang(OpenWeatherMap.Language.RUSSIAN);
         
         // getting current weather data for the "London" city
-        CurrentWeather cwd = owm.currentWeatherByCityName("Tver");
+        CurrentWeather cwd = owm.currentWeatherByCityName("Saratov");
         
-        //printing city name from the retrieved data
-        System.out.println("City: " + cwd.getCityName());
         city.setText(cwd.getCityName()+","+cwd.getSysInstance().getCountryCode());
-        date.setText("Wind speed "+Float.toString(cwd.getWindInstance().getWindSpeed())+" meter/sec" + " Clouds "+cwd.getCloudsInstance().getPercentageOfClouds() + "%");
-        // printing the max./min. temperature
-        System.out.println("Temperature : " + cwd.getMainInstance().getMaxTemperature()
-                            + " - " + cwd.getMainInstance().getMinTemperature() + "\'C");
-        
+
+        other_data.setText("Wind speed "+Float.toString(cwd.getWindInstance().getWindSpeed())+" meter/sec" + " Clouds "+cwd.getCloudsInstance().getPercentageOfClouds() + "%" + " Pressure "+cwd.getMainInstance().getPressure() + " hpa");
         current_temp.setText("Current Temp " + cwd.getMainInstance().getTemperature() +" C");
-        // printing the max./min. temperature
-        System.out.println("Pressure: " + cwd.getMainInstance().getPressure() + " hpa");
-        System.out.println("Humidity: " + cwd.getMainInstance().getHumidity() + " %");
         
     }
     
